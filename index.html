@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wai Yan Naing Win | AI, Robotics and Facilities Engineer</title>
+<style>
+:root{--bg:#04060E;--surface:rgba(255,255,255,.06);--ink:#F2F5FA;--muted:#A3AEC2;--line:rgba(255,255,255,.14);--accent:#6EA8FF;--accent2:#5CF2D6;--on-accent:#04101F;--p:0;--h1:215;--h2:275;--h3:170;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#04060E;--surface:rgba(255,255,255,.06);--ink:#F2F5FA;--muted:#A3AEC2;--line:rgba(255,255,255,.14);--accent:#6EA8FF;--accent2:#5CF2D6;--on-accent:#04101F;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#04060E;--surface:rgba(255,255,255,.06);--ink:#F2F5FA;--muted:#A3AEC2;--line:rgba(255,255,255,.14);--accent:#6EA8FF;--accent2:#5CF2D6;--on-accent:#04101F;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "IBM Plex Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","IBM Plex Sans",sans-serif;line-height:1.1;margin:0}
+a{color:var(--accent)}
+#bg{position:fixed;inset:0;z-index:-1;overflow:hidden;background:var(--bg)}
+#bg .o{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;will-change:transform}
+#bg .o1{width:60vmax;height:60vmax;left:-15vmax;top:-20vmax;background:hsl(var(--h1) 90% 55%);transform:translate3d(calc(var(--p)*40vw),calc(var(--p)*50vh),0)}
+#bg .o2{width:50vmax;height:50vmax;right:-15vmax;bottom:-20vmax;background:hsl(var(--h2) 90% 55%);transform:translate3d(calc(var(--p)*-35vw),calc(var(--p)*-60vh),0)}
+#bg .o3{width:30vmax;height:30vmax;left:40%;top:30%;background:hsl(var(--h3) 90% 60%);opacity:.3;transform:translate3d(calc(var(--p)*-20vw),calc(var(--p)*30vh),0) scale(calc(1 + var(--p)))}
+#bg .grid{position:absolute;left:-50%;right:-50%;bottom:-10%;height:75%;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;background-position:0 calc(var(--p)*1500px);transform:perspective(500px) rotateX(62deg);transform-origin:bottom;-webkit-mask-image:linear-gradient(to top,#000,transparent 85%);mask-image:linear-gradient(to top,#000,transparent 85%)}
+.js .rv{opacity:0;transform:translateY(32px) scale(.98);transition:opacity .9s ease,transform .9s ease}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+nav{display:flex;gap:18px;flex-wrap:wrap;justify-content:flex-end;padding:18px 0;font-size:15px}
+nav a{color:var(--muted);text-decoration:none}nav a:hover{color:var(--ink)}
+.hero{display:grid;grid-template-columns:1fr;gap:36px;align-items:center;padding:28px 0 64px}
+.hero h1{font-size:clamp(44px,8vw,88px);font-weight:700;letter-spacing:-.03em;background:linear-gradient(100deg,#fff 30%,var(--accent) 75%,var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{font-size:20px;color:var(--muted);max-width:34em;margin:20px 0 28px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:500;border:1.5px solid var(--ink);color:var(--ink)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn.blue{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:999px;border:0;color:#fff;font-weight:600;font-size:1.05rem;letter-spacing:.2px;background:linear-gradient(135deg,#2F7BFF 0%,#1B5CE6 55%,#1646B8 100%);box-shadow:0 8px 22px rgba(47,123,255,.38),inset 0 1px 0 rgba(255,255,255,.28);transition:transform .2s ease,box-shadow .2s ease,filter .2s ease}
+.btn.blue .arr{display:inline-block;transition:transform .2s ease}
+.btn.blue:hover{transform:translateY(-3px);filter:brightness(1.1);box-shadow:0 14px 30px rgba(47,123,255,.55),inset 0 1px 0 rgba(255,255,255,.3)}
+.btn.blue:hover .arr{transform:translateX(4px)}
+.btn.blue:active{transform:translateY(-1px)}
+.btn.blue:focus-visible{outline:3px solid #9CC2FF;outline-offset:3px}
+.stage{-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px}
+canvas{width:100%;aspect-ratio:4/3;display:block}
+.cap{font-size:14px;color:var(--muted);margin:6px 4px 2px}
+section{padding:84px 0}
+section>.wrap>h2{font-size:clamp(28px,4vw,40px);margin-bottom:28px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.proj{-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px}
+.proj h3{font-size:22px;margin-bottom:10px}
+.proj ul,.job ul{margin:10px 0 0;padding-left:20px}
+.proj li,.job li{margin-bottom:6px}
+.proj.feature{grid-column:1/-1;border-left:5px solid var(--accent)}
+.tag{display:inline-block;font-size:14px;color:var(--accent2);margin-bottom:8px;font-weight:500}
+.job{display:grid;grid-template-columns:200px 1fr;gap:12px 28px;padding:22px 0;border-bottom:1px solid var(--line)}
+.job:last-child{border:0}
+.job .when{color:var(--muted);font-size:15px}
+.job h3{font-size:21px}.job .org{color:var(--accent2);font-weight:500}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.tabs button{font:inherit;padding:9px 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:0;list-style:none}
+.chips li{-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:7px 13px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.edu p{margin:0 0 14px}.edu small,.cert small{color:var(--muted)}
+.cert{list-style:none;padding:0;margin:0}.cert li{padding:9px 0;border-bottom:1px solid var(--line)}
+.contact{font-size:20px}
+.about{display:block}.bio p{margin:0 0 16px;max-width:40em}.bio p:first-child{font-size:19px}
+footer{padding:28px 0 40px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+@media (max-width:760px){.hero,.two,.job{grid-template-columns:1fr}.job{gap:4px}nav{justify-content:flex-start}}
+/* Times New Roman, justified, larger text */
+body,h1,h2,h3,button,.btn{font-family:"Times New Roman",Times,serif}
+body{font-size:19px}
+p,li,.bio p,.lead,.cap,.edu p,.proj p,.job p{text-align:justify;text-justify:inter-word;hyphens:auto;-webkit-hyphens:auto}
+nav{font-size:17px}
+.hero h1{font-size:clamp(48px,8.5vw,96px)}
+.hero p.lead{font-size:23px;max-width:none}
+.cap{font-size:16px}
+section>.wrap>h2{font-size:clamp(32px,4.4vw,45px)}
+.proj h3{font-size:25px}
+.tag{font-size:17px}
+.job .when{font-size:17px}
+.job h3{font-size:24px}
+.contact{font-size:22px}
+.bio p:first-child{font-size:22px}
+footer{font-size:16px}
+.edu small,.cert small{font-size:17px}
+.contact{margin:0 0 16px;max-width:none}
+.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:28px}
+.linkcard{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:14px;text-decoration:none;color:var(--on-accent);background:linear-gradient(135deg,var(--accent),#8fbcff);border:1px solid rgba(255,255,255,.35);box-shadow:0 8px 24px rgba(110,168,255,.25);transition:transform .2s ease,box-shadow .2s ease;overflow-wrap:anywhere}
+a.linkcard:hover,a.linkcard:focus-visible{transform:translateY(-3px);box-shadow:0 14px 32px rgba(110,168,255,.4)}
+.linkcard .ic{flex:none;width:44px;height:44px;border-radius:12px;background:rgba(4,16,31,.14);display:grid;place-items:center}
+.linkcard svg{width:22px;height:22px;fill:var(--on-accent)}
+.linkcard .tx{display:flex;flex-direction:column;font-weight:700;font-size:18px;line-height:1.3;text-align:left}
+.linkcard small{font-size:14px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
+#projects .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:760px){#projects .grid{grid-template-columns:1fr}}
+.hero .btns{margin-top:28px}
+.hero .sub{margin:20px 0 0}
+.hero .sub p{margin:0 0 8px;text-align:left;hyphens:none;color:var(--muted)}
+.hero .sub .role{font-size:25px;font-weight:700;color:var(--ink)}
+.hero .sub .reloc{font-size:20px;color:var(--accent2);font-weight:700}
+.hero .sub .seek{font-size:21px}
+.hero .sub .nat{font-size:20px;color:var(--muted)}
+.avail{display:block;margin:18px 0 24px;padding:14px 18px;border-radius:12px;border:1px solid var(--line);border-left:4px solid var(--accent);background:var(--surface);font-size:19px;line-height:1.5;text-align:left}
+.avail strong{color:var(--accent2)}
+
+nav{justify-content:space-between;gap:12px;padding:22px 0;font-size:18px;letter-spacing:.3px}
+nav a{padding:6px 4px}
+@media (max-width:760px){nav{justify-content:space-between;gap:6px;font-size:14px}nav a{padding:6px 2px}}
+</style>
+</head>
+<body>
+<div id="bg" aria-hidden="true"><div class="o o1"></div><div class="o o2"></div><div class="o o3"></div><div class="grid"></div></div>
+<div class="wrap">
+<nav aria-label="Main"><a href="#about">About</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#contact">Contact</a></nav>
+</div>
+
+<div class="wrap">
+<header class="hero">
+<div>
+<h1>Wai Yan Naing Win</h1>
+<div class="sub">
+<p class="role">Maintenance Engineer | Master in Information Technology Graduate</p>
+<p class="reloc">Open to Relocation</p>
+<p class="seek">Seeking Maintenance Engineering Roles or AI/ML Internships</p>
+</div>
+<div class="btns"><a class="btn blue" href="#projects">See my work <span class="arr">&rarr;</span></a><a class="btn blue" href="#contact">Get in touch <span class="arr">&rarr;</span></a></div>
+</div>
+</header>
+</div>
+
+<section id="about"><div class="wrap">
+<h2>About Me</h2>
+<div class="about">
+<div class="bio">
+<p>I am a Master in Information Technology graduate (Distinction, CGPA 3.79 / 4.0) with a First Class Honours degree in Mechatronics Engineering. My Master’s project focused on robot path planning, where I developed N-DQN-RRT, a hybrid algorithm that uses a Deep Q-Network to guide the sampling of an RRT* planner toward goal-directed, obstacle-aware routes.</p>
+<p>The project included a 7-dimensional state representation and an adaptive rewiring radius that scales with learned obstacle clearance. I trained the agent for 400 episodes on procedurally generated 2D maze environments and validated it over 100 stochastic trials against baseline sampling strategies. The work was published in a peer-reviewed journal, the International Journal of Advanced Computer Science and Applications (IJACSA, 2026).</p>
+<p>I also bring hands-on engineering experience from LOTTE Hotels Yangon, where I maintained HVAC systems, chillers and cooling towers, and from Mitsubishi Motors, where I worked on vehicle diagnostics and servicing. I am now looking for a maintenance engineering position or an internship in machine learning and artificial intelligence, and I am open to relocating for the right opportunity.</p>
+</div></div>
+</div></section>
+<section id="projects"><div class="wrap">
+<h2>Projects and Research</h2>
+<div class="grid">
+<article class="proj feature">
+<span class="tag">Peer-Reviewed Paper · IJACSA 2026</span>
+<h3>N-DQN-RRT: Deep Reinforcement Learning for Path Planning</h3>
+<p>My Master’s project, published in the International Journal of Advanced Computer Science and Applications. A trained Deep Q-Network guides where a robot searches, so it finds good routes faster.</p>
+<ul>
+<li>Built a hybrid algorithm that adds a Deep Q-Network to a modified RRT* planner.</li>
+<li>Designed a 7-dimensional state and an adaptive rewiring radius based on learned obstacle clearance.</li>
+<li>Trained for 400 episodes on generated 2D mazes and tested over 100 stochastic trials against baseline methods.</li>
+</ul>
+<p><a href="https://doi.org/10.14569/IJACSA.2026.01709104">Read the paper (DOI)</a></p>
+<div class="stage" style="margin-top:20px">
+<canvas id="rrt" role="img" aria-label="Animation of a search tree growing around obstacles to find a path to a goal, similar to the algorithm in my published paper"></canvas>
+</div>
+</article>
+<article class="proj">
+<span class="tag">Bachelor’s Project · MATLAB/Simulink</span>
+<h3>Autonomous Navigation for a Differential Drive Robot</h3>
+<ul>
+<li>Compared A*, Hybrid A*, RRT* and PRM on three maps of rising complexity.</li>
+<li>Built a closed-loop Simulink model with a planner, pure pursuit controller and robot kinematics.</li>
+<li>Controlled a real robot over Bluetooth with an Arduino UNO R4 WiFi and measured command latency.</li>
+</ul>
+</article>
+<article class="proj">
+<span class="tag">HND Project · Arduino</span>
+<h3>Two-Legged Walking Robot</h3>
+<ul>
+<li>Designed a 3D-printed frame for the body and actuators.</li>
+<li>Programmed eight servo motors to produce a walking motion.</li>
+<li>Combined mechanical design and embedded control in one working prototype.</li>
+</ul>
+</article>
+</div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+<h2>Experience</h2>
+<div class="job"><div class="when">Feb 2025 to Mar 2025</div><div><h3>Preventive Maintenance Engineering Technician</h3><div class="org">LOTTE Hotels Yangon, HVAC Department</div>
+<ul><li>Carried out preventive and corrective maintenance on HVAC systems across hotel and apartment facilities.</li><li>Serviced cooling towers and operated chillers, keeping daily logs to prevent faults.</li><li>Answered maintenance requests quickly to reduce downtime, and followed safety and building standards.</li></ul></div></div>
+<div class="job"><div class="when">Apr 2024 to Oct 2024</div><div><h3>Facility Management and Preventive Maintenance Intern</h3><div class="org">LOTTE Hotels Yangon</div>
+<ul><li>Supported routine inspections and assigned maintenance requests from guests and staff.</li><li>Monitored the Building Management System (BMS) for daily operations.</li><li>Followed HSE procedures and learned swimming pool water treatment.</li></ul></div></div>
+<div class="job"><div class="when">Jan 2024 to Mar 2024</div><div><h3>Automobile Technician Intern</h3><div class="org">Mitsubishi Motors MMCM, Yangon</div>
+<ul><li>Diagnosed mechanical and electrical faults with the engineering team.</li><li>Supported inspections, oil changes and regular servicing, using workshop tools and technical documents.</li></ul></div></div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+<h2>Skills</h2>
+<div class="tabs" role="tablist" aria-label="Skill areas">
+<button role="tab" aria-selected="true" data-t="ai">AI and machine learning</button>
+<button role="tab" aria-selected="false" data-t="rob">Robotics and automation</button>
+<button role="tab" aria-selected="false" data-t="fac">Facilities and HVAC</button>
+<button role="tab" aria-selected="false" data-t="it">IT and software</button>
+</div>
+<ul class="chips" id="chips" aria-live="polite"></ul>
+</div></section>
+
+<section id="education"><div class="wrap two">
+<div class="edu"><h2 style="margin-bottom:20px">Education</h2>
+<p><strong>Master in Information Technology, Distinction</strong><br>INTI International University, Malaysia<br><small>May 2026 · CGPA 3.79 / 4.0</small></p>
+<p><strong>BEng (Hons) Mechatronics, First Class Honours</strong><br>Liverpool John Moores University, UK<br><small>March 2024</small></p>
+<p><strong>HND Mechanical Engineering, Merit</strong><br>Pearson BTEC, UK<br><small>February 2021</small></p>
+<p><strong>Foundation in Engineering, Distinction</strong><br>South Essex College, UK<br><small>December 2018</small></p>
+<p><small>Languages: English (fluent, IELTS 7.5) and Burmese (native)</small></p></div>
+<div><h2 style="margin-bottom:20px">Certifications</h2>
+<ul class="cert">
+<li>Machine Learning Professional Certificate<br><small>IBM, Coursera, 2026</small></li>
+<li>Exploratory Data Analysis for Machine Learning<br><small>IBM, Coursera, 2026</small></li>
+<li>Supervised Machine Learning: Regression<br><small>IBM, Coursera, 2026</small></li>
+<li>Supervised Machine Learning: Regression and Classification<br><small>Stanford, Coursera, 2025</small></li>
+<li>Network Security<br><small>Cisco Networking Academy, 2025</small></li>
+<li>Programming for Everybody<br><small>University of Michigan, Coursera, 2024</small></li>
+</ul></div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+<h2>Contact and Availability</h2>
+<p class="contact">I am a Maintenance Engineer with up to one year of professional experience and a fresh graduate with a Master’s degree in Information Technology from INTI International University. I am currently based in Negeri Sembilan, Malaysia, and I am seeking maintenance engineering roles or machine learning and artificial intelligence internships, where I can apply both my research in deep reinforcement learning and my hands-on engineering experience.</p>
+<p class="contact">I am willing to relocate for the right opportunity. If you have an opening in mind or would like to discuss my work, I would be glad to hear from you, and I look forward to connecting.</p>
+<p class="avail"><strong>Availability:</strong> Available to start immediately</p>
+<div class="links">
+<a class="linkcard" href="https://linkedin.com/in/waiyannaingwin" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3V9.75zm6.5 0h3.83v1.54h.06c.53-1 1.84-2.05 3.78-2.05 4.04 0 4.78 2.66 4.78 6.12V21h-4v-4.9c0-1.17-.02-2.67-1.63-2.67-1.63 0-1.88 1.27-1.88 2.58V21h-4V9.75z"/></svg></span><span class="tx"><small>LinkedIn</small>View my profile</span></a>
+<a class="linkcard" href="https://mail.google.com/mail/?view=cm&fs=1&to=waiyannw2002@gmail.com" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.2L4.5 7v.1L12 12.4 19.5 7.1V7L12 12.2z"/></svg></span><span class="tx"><small>Email</small>Send me an email</span></a>
+<div class="linkcard loc"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></span><span class="tx"><small>Location</small>Negeri Sembilan, Malaysia · Open to relocation</span></div>
+</div>
+</div></section>
+
+<script>
+(function(){
+var S={
+ai:["Deep reinforcement learning","Deep Q-Network (DQN)","Supervised learning: regression and classification","Exploratory data analysis","Python"],
+rob:["Path planning: A*, Hybrid A*, RRT*, PRM","Autonomous navigation","Mobile robotics","Mechatronics","PLC basics","Sensors and actuators","Arduino","MATLAB/Simulink"],
+fac:["HVAC: AHU, FCU, chillers, cooling towers","Building Management System (BMS)","Preventive and corrective maintenance","Facility management","HSE compliance"],
+it:["Python","MATLAB","Microsoft Office 365","AutoCAD (basic)","Networking fundamentals","Network security","Troubleshooting"]};
+var chips=document.getElementById("chips"),tabs=document.querySelectorAll(".tabs button");
+function show(k){chips.innerHTML=S[k].map(function(s){return "<li>"+s+"</li>"}).join("");tabs.forEach(function(b){b.setAttribute("aria-selected",b.dataset.t===k)})}
+tabs.forEach(function(b){b.addEventListener("click",function(){show(b.dataset.t)})});show("ai");
+
+var c=document.getElementById("rrt"),x=c.getContext("2d"),W,H,N,P,obs,start,goal,done,hold;
+var still=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+function col(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim()}
+function size(){var r=c.getBoundingClientRect(),d=window.devicePixelRatio||1;W=c.width=Math.round(r.width*d);H=c.height=Math.round(r.height*d);reset()}
+function reset(){
+obs=[[.22,0,.035,.7],[.42,.3,.035,.7],[.62,0,.035,.7],[.82,.3,.035,.7]].map(function(o){return[o[0]*W,o[1]*H,o[2]*W,o[3]*H]});
+start={x:.08*W,y:.12*H};goal={x:.92*W,y:.88*H};N=[{x:start.x,y:start.y,p:-1}];P=null;done=false;hold=0}
+function hit(a,b){for(var t=0;t<=1;t+=.1){var px=a.x+(b.x-a.x)*t,py=a.y+(b.y-a.y)*t;
+if(px<0||py<0||px>W||py>H)return true;
+for(var i=0;i<obs.length;i++){var o=obs[i];if(px>o[0]&&px<o[0]+o[2]&&py>o[1]&&py<o[1]+o[3])return true}}return false}
+function grow(){
+var step=W*.04,s=Math.random()<.04?goal:{x:Math.random()*W,y:Math.random()*H},bi=0,bd=1e12;
+N.forEach(function(n,i){var d=(n.x-s.x)*(n.x-s.x)+(n.y-s.y)*(n.y-s.y);if(d<bd){bd=d;bi=i}});
+var n=N[bi],a=Math.atan2(s.y-n.y,s.x-n.x),q={x:n.x+Math.cos(a)*step,y:n.y+Math.sin(a)*step,p:bi};
+if(hit(n,q))return;N.push(q);
+if(Math.hypot(q.x-goal.x,q.y-goal.y)<step*1.2){P=[{x:goal.x,y:goal.y}];for(var i=N.length-1;i>=0;i=N[i].p)P.push(N[i]);done=true}}
+function draw(){
+x.clearRect(0,0,W,H);
+x.fillStyle=col("--line");obs.forEach(function(o){x.fillRect(o[0],o[1],o[2],o[3])});
+x.strokeStyle=col("--accent2");x.globalAlpha=.55;x.lineWidth=Math.max(1,W/500);x.beginPath();
+N.forEach(function(n){if(n.p>=0){x.moveTo(N[n.p].x,N[n.p].y);x.lineTo(n.x,n.y)}});x.stroke();x.globalAlpha=1;
+if(P){x.strokeStyle=col("--accent");x.lineWidth=Math.max(3,W/160);x.lineJoin="round";x.beginPath();x.moveTo(P[0].x,P[0].y);for(var j=1;j<P.length-1;j++){x.quadraticCurveTo(P[j].x,P[j].y,(P[j].x+P[j+1].x)/2,(P[j].y+P[j+1].y)/2)}x.lineTo(P[P.length-1].x,P[P.length-1].y);x.stroke()}
+x.fillStyle=col("--ink");x.beginPath();x.arc(start.x,start.y,W/70,0,7);x.fill();
+x.fillStyle=col("--accent");x.beginPath();x.arc(goal.x,goal.y,W/60,0,7);x.fill()}
+function loop(){
+if(!done){for(var i=0;i<14;i++)grow()}else if(++hold>150)reset();
+draw();requestAnimationFrame(loop)}
+size();window.addEventListener("resize",size);
+if(still){for(var k=0;k<40000&&!done;k++)grow();draw()}else loop();
+})();
+</script>
+<script>
+(function(){
+var r=document.documentElement,mo=window.matchMedia("(prefers-reduced-motion: reduce)").matches,q=0;
+function upd(){q=0;var h=document.documentElement.scrollHeight-window.innerHeight,p=h>0?Math.min(1,Math.max(0,window.scrollY/h)):0;
+r.style.setProperty("--p",p.toFixed(4));r.style.setProperty("--h1",Math.round(215+p*150));r.style.setProperty("--h2",Math.round(275-p*100));r.style.setProperty("--h3",Math.round(170+p*140))}
+if(!mo){window.addEventListener("scroll",function(){if(!q)q=requestAnimationFrame(upd)},{passive:true});window.addEventListener("resize",upd);upd();
+if("IntersectionObserver" in window){r.classList.add("js");var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll("section h2,.proj,.job,.edu,.cert,.contact").forEach(function(el){el.classList.add("rv");io.observe(el)})}}
+})();
+</script>
+</body>
+</html>
